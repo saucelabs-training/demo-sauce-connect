@@ -27,11 +27,7 @@ SC new release US-WEST:
   script:
     - curl https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz -o sc-4.6.4.tar.gz
     - tar -xf sc-4.6.4.tar.gz
-    - ./sc-4.6.4-linux/bin/sc \
-      -u $SAUCE_USERNAME \
-      -k $SAUCE_ACCESS_KEY \
-      -i my-gitlab-tunnel \
-      -f ./sc.ready &
+    - ./sc-4.6.4-linux/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -i my-gitlab-tunnel -f ./sc.ready &
     - sh scripts/wait-4-sc.sh
     - npm run desktop
     - npm run mobile
