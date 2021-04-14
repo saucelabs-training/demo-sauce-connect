@@ -1,0 +1,38 @@
+image: node:latest
+# set your SAUCE_USERNAME & SAUCE_ACCESS_KEY env. variables in the CICD settings
+# or here
+# variables:
+#   SAUCE_USERNAME=replace.me
+#   SAUCE_ACCESS_KEY=definitely-replace-me
+
+# Put this .sh script somewhere in your repo
+# #! /bin/bash
+# # wait-4-sc.sh
+# until [ -f sc.ready ]
+# do
+#     sleep 2
+# done
+# echo "tunnel ready"
+# exit
+
+
+stages:
+  - test
+
+
+SC new release US-WEST:
+  stage: test
+  before_script:
+    - npm install
+  script:
+    - curl https://saucelabs.com/downloads/sc-4.6.4-linux.tar.gz -o sc-4.6.4.tar.gz
+    - tar -xf sc-4.6.4.tar.gz
+    - ./sc-4.6.4-linux/bin/sc \
+      -u $SAUCE_USERNAME \
+      -k $SAUCE_ACCESS_KEY \
+      -i my-gitlab-tunnel \
+      -f ./sc.ready &
+    - sh scripts/wait-4-sc.sh
+    - npm run desktop
+    - npm run mobile
+    - kill -SIGINT $(ps aux | grep my-gitlab-tunnel | grep -v grep | awk '{ print $2 }') 
