@@ -1,21 +1,18 @@
-- name required (`-i`)
-- `no remove colliding` flag required
-- ` &` required if using one terminal to send sc.exe process to the background
-This will still output the initial tunnel startup preamble.
-
-```
+# start three tunnel instances on a single host machine
+# for more information on high availability setups, see the following link
+# https://wiki.saucelabs.com/display/DOCS/High+Availability+Sauce+Connect+Proxy+Setup
 bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
--i qa_staging_tunnel \
+-i high-availability-tunnels \
 --no-remove-colliding-tunnels \
 --pidfile /tmp/1.pid \ &
 
 bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
--i qa_staging_tunnel \
+-i high-availability-tunnels \
 --no-remove-colliding-tunnels \
 --pidfile /tmp/2.pid \ &
 
 bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
--i qa_staging_tunnel \
+-i high-availability-tunnels \
 --no-remove-colliding-tunnels \
 --pidfile /tmp/3.pid \ &
-``` 
+ 
