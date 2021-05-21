@@ -1,4 +1,4 @@
-# start three tunnel instances on a single host machine
+# start three Sauce Connect tunnel instances on a single host machine
 # for more information on high availability setups, see the following link
 # https://wiki.saucelabs.com/display/DOCS/High+Availability+Sauce+Connect+Proxy+Setup
 bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY \
