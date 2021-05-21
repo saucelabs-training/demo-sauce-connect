@@ -31,6 +31,15 @@ These examples are specific to CI tools. Some examples are kept here, but some C
 
 If you need a containerized Sauce Connect, please see the [Sauce-Connect-Docker](https://github.com/saucelabs/sauce-connect-docker) repository.
 
+## Contributions and Contributors
+
+If there's a scenario you'd like to see added here, please open an issue or a pull request. 
+
+Also big thanks go out to the following people for their contributions:
+- Enrique Gonzales
+- Evelyn Coleman
+- Max Dobeck 
+
 > Disclaimer:
 
 > The code in these scripts is provided on an "AS-IS" basis without warranty of any kind, either express or implied, including without limitation any implied warranties of condition, uninterrupted use, merchantability, fitness for a particular purpose, or non-infringement. These scripts are provided for educational and demonstration purposes only, and should not be used in production. Issues regarding these scripts should be submitted through GitHub. These scripts are maintained by the Technical Services team at Sauce Labs.
