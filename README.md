@@ -38,7 +38,8 @@ If there's a scenario you'd like to see added here, please open an issue or a pu
 Also big thanks go out to the following people for their contributions:
 - Enrique Gonzales
 - Evelyn Coleman
-- Max Dobeck 
+- Max Dobeck
+- Zuzana Bodiková
 
 > Disclaimer:
 
