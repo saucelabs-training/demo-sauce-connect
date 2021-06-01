@@ -2,6 +2,10 @@
 
 This repository contains examples of scripts for starting Sauce Connect tunnels according to Sauce Labs' best practices. These examples show several use cases for Sauce Connect.
 
+## Getting Started with Sauce Connect
+
+If you are interested in getting started with Sauce Conenct, please see the [official documentation](https://docs.saucelabs.com/secure-connections/index.html#sauce-connect-proxy) or if you'd like something more interactive, see the [Sauce School tutorials](https://training.saucelabs.com/sauceconnect/) on Sauce Connect.
+
 ## Installation
 
 You can download Sauce Connect from [Sauce Lab's Documentation](https://wiki.saucelabs.com/display/DOCS/Downloading+Sauce+Connect+Proxy#DownloadingSauceConnectProxy-DownloadSauceConnectProxy). Downloading and installing Sauce Connect is free for all users.
