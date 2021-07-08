@@ -1,0 +1,54 @@
+# This workflow uses the Sauce Labs Sauce Connect Github action to create an instance of Sauce Connect. 
+# This example specifies the name and version of the requested tunnel. 
+
+name: Swag Labs Sample App Workflow
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    defaults:
+      run:
+        working-directory: ./
+    env:
+      BUILD_PREFIX: true
+      IS_MAIN: ${{ github.ref == 'refs/heads/main' }}
+      SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+      SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+      SCREENER_API_KEY: ${{ secrets.SCREENER_API_KEY }}
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    # Begin Sauce Connect Action Step
+    - name: Sauce Connect Action
+      uses: saucelabs/sauce-connect-action@v1
+      with:
+        username: ${{ secrets.SAUCE_USERNAME }}
+        accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+        tunnelIdentifier: ciTunnel
+        scVersion: 4.6.4
+    # End Sauce Connect Action Step
+    
+    # Site Testing steps
+    - name: Install dependencies
+      run: npm install
+      
+    #This complete build and E2E tests can be found at https://github.com/coleve27/sample-app-web/blob/master/.github/workflows/sample-app-web.yml
+    - name: Build and E2E test the site
+      run: npm run start & npx wait-on --timeout 60000 http://localhost:3000 && npm run test.e2e.sauce.us
