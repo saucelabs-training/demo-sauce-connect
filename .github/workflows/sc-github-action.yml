@@ -28,9 +28,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Start a tunnel using GitHub Actions
         uses: saucelabs/sauce-connect-action@v2.0.0
-          with:
-            username: ${{ secrets.SAUCE_USERNAME }}
-            accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
-            tunnelIdentifier: github-action-tunnel
-            scVersion: 4.7.1
-            noRemoveCollidingTunnels: true
+        with:
+          username: ${{ secrets.SAUCE_USERNAME }}
+          accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+          tunnelIdentifier: github-action-tunnel
+          scVersion: 4.7.1
+          noRemoveCollidingTunnels: true
